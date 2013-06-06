@@ -8,23 +8,18 @@ body {
     color: #333;
 }
 
-textarea {
-  width: 500px;
-  height: 24px;
-  font-size: 17px;
-  font-family: monospace;
-}
-
-input[type=button] {
-  font-size: 18px;
-}
-
-input[type=text] {
-  font-size: 18px;
-}
-
 table {
   border-radius: 10px;
+  border: 3px solid #BFBFBF;
+}
+
+#users {
+    background-color: #F5F5F5;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    border-right: 3px solid #BFBFBF;
+    height: 400px;
+    width: 100px;
 }
 
 .main-title {
@@ -38,5 +33,44 @@ table {
 }
 
 .nickname {
+    color: green;
+}
 
+#messages {
+    margin-top: 0;
+    margin-bottom: 0;
+    border-bottom: 3px solid #BFBFBF;
+    height: 380px;
+
+}
+
+#chatters {
+    color: green;
+}
+
+#input-data{
+    margin-bottom: 0;
+    padding: 0px;
+    height: 20px;
+}
+
+#messageInput {
+    margin: 0 0 0 0;
+    border: none;
+    font-size: 20px;
+    outline: none;
+}
+
+#btnSend {
+    background-color: #4B4B4B;
+    color: #898989;
+    border: none;
+    border-bottom-right-radius: 6px;
+    margin: 0 0 0 0;
+    font-size: 20px;
+    width: 100px;
+}
+
+#btnSend:hover{
+    background-color: #5a5a5a;
 }

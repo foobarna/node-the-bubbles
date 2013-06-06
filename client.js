@@ -43,7 +43,6 @@ $(document).ready(function() {
 	});
 
 	$("#messageInput").keyup( function(e) {
-		alert("enter");
 		if(e.witch == 13) {
 			$("btnSend").click();
 		}
