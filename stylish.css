@@ -40,8 +40,7 @@ table {
     margin-top: 0;
     margin-bottom: 0;
     border-bottom: 3px solid #BFBFBF;
-    height: 380px;
-
+    min-height: 400px;
 }
 
 #chatters {

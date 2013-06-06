@@ -3,12 +3,11 @@ $(document).ready(function() {
 	var server = io.connect(url);
 
 	var createMessage = function(nickname, message) {
-		var messageDiv = '<div class="chatter-message"><span class="nickname">' + nickname + "</span>" + "<br>" + '<span class="message">' + message + "</span>" + "</div><br>";
-		return messageDiv;
+        $("#messages").append('<div class="chatter-message"><span class="nickname">' + nickname + "</span>" + "<br>" + '<span class="message">' + message + "</span>" + "</div><br>");
 	};
 
 	var insertChatter = function(name) {
-		var chatter = $("<li data-name=\"" + name + "\">" + name + "</li>").data("name", name);
+		var chatter = $('<li data-name="' + name + "\">" + name + "</li>").data("name", name);
 		$("#chatters").append(chatter);
 	};
 
@@ -16,7 +15,7 @@ $(document).ready(function() {
 		$("#chatters li[data-name=" + name + "]").remove();
 	};
 
-	server.on("connect", function(data) {
+	server.on("connect", function() {
 		var nickname = prompt("What is your nickname?");
 
 		if(nickname === null || nickname === "") return;
@@ -24,13 +23,8 @@ $(document).ready(function() {
 		server.emit("join", nickname);
 	});
 
-	server.on("chatter message", function(nick, msg) {
-		var data = createMessage(nick, msg);
-		// var messages = $("#messages").html();
-		// messages += data;
-		$("#messages").append(data);
-	});
 
+	server.on("chatter message", createMessage);
 	server.on("add chatter", insertChatter);
 	server.on("remove chatter", removeChatter);
 
@@ -43,8 +37,8 @@ $(document).ready(function() {
 	});
 
 	$("#messageInput").keyup( function(e) {
-		if(e.witch == 13) {
-			$("btnSend").click();
+		if(e.which == 13) {
+			$("#btnSend").click();
 		}
 	});
 });
