@@ -18,9 +18,7 @@ table {
     border-top-left-radius: 6px;
     border-bottom-left-radius: 6px;
     border-right: 3px solid #BFBFBF;
-    height: 400px;
-    width: 100px;
-}
+    width: 150px;}
 
 .main-title {
     display: block;
@@ -40,7 +38,15 @@ table {
     margin-top: 0;
     margin-bottom: 0;
     border-bottom: 3px solid #BFBFBF;
-    min-height: 400px;
+    height: 450px;
+    width: 100%;
+    overflow: auto;
+    word-break: break-all; /* webkit */
+    word-wrap: break-word;
+    white-space: pre;
+    white-space: -moz-pre-wrap; /* fennec */
+    white-space: pre-wrap;
+    white-space: pre\9; /* IE7+ */
 }
 
 #chatters {
@@ -58,6 +64,8 @@ table {
     border: none;
     font-size: 20px;
     outline: none;
+    float: left;
+    width: 350px;
 }
 
 #btnSend {
@@ -68,6 +76,7 @@ table {
     margin: 0 0 0 0;
     font-size: 20px;
     width: 100px;
+    float: right;
 }
 
 #btnSend:hover{

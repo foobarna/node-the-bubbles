@@ -3,7 +3,9 @@ $(document).ready(function() {
 	var server = io.connect(url);
 
 	var createMessage = function(nickname, message) {
-        $("#messages").append('<div class="chatter-message"><span class="nickname">' + nickname + "</span>" + "<br>" + '<span class="message">' + message + "</span>" + "</div><br>");
+        var msg = $("#messages");
+        msg.append('<div class="chatter-message"><span class="nickname">' + nickname + "</span>" + "<br>" + '<span class="message">' + message + "</span>" + "</div><br>");
+        msg.scrollTop(msg.get(0).scrollHeight);
 	};
 
 	var insertChatter = function(name) {
@@ -29,9 +31,10 @@ $(document).ready(function() {
 	server.on("remove chatter", removeChatter);
 
 	$("#btnSend").on('click', function() {
-		var message = $("#messageInput").val();
+        var msgElem = $(this).parent().find("#messageInput");
+        var message = msgElem.val();
 		if(message === "") return;
-		$("#messageInput").val("");
+        msgElem.val("");
 
 		server.emit("chatter message", message);
 	});
