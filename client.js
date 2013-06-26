@@ -9,12 +9,14 @@ $(document).ready(function() {
 	};
 
 	var insertChatter = function(name) {
-		var chatter = $('<li data-name="' + name + "\">" + name + "</li>").data("name", name);
+		var chatter = $('<li>' + name + "</li>").data("name", name);
 		$("#chatters").append(chatter);
 	};
 
 	var removeChatter = function(name) {
-		$("#chatters li[data-name=" + name + "]").remove();
+        $("#chatters").find("li").filter(function() {
+            if($(this).data("name") == name) $(this).remove();
+        });
 	};
 
 	server.on("connect", function() {
@@ -40,8 +42,6 @@ $(document).ready(function() {
 	});
 
 	$("#messageInput").keyup( function(e) {
-		if(e.which == 13) {
-			$("#btnSend").click();
-		}
+		if(e.which == 13) $("#btnSend").click();
 	});
 });
